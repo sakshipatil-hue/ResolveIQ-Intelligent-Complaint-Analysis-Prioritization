@@ -1,12 +1,12 @@
-# 🔍 ResolveIQ 2.0
+# 🔍 ResolveIQ
 
-### AI-Powered Consumer Complaint Intelligence Platform
+### INTELLIGENT COMPLAINT ANALYSIS & PRIORITIZATION
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.11+-blue?style=for-the-badge&logo=python&logoColor=white" />
   <img src="https://img.shields.io/badge/Django-Framework-092E20?style=for-the-badge&logo=django&logoColor=white" />
   <img src="https://img.shields.io/badge/Machine%20Learning-Scikit--learn-orange?style=for-the-badge&logo=scikitlearn&logoColor=white" />
-  <img src="https://img.shields.io/badge/Status-In%20Development-yellow?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Concept-In%20NLP-yellow?style=for-the-badge" />
 </p>
 
 <p align="center">
@@ -17,7 +17,7 @@
 
 ## 🌟 Overview
 
-**ResolveIQ 2.0** is an AI-powered consumer complaint intelligence platform designed to automate complaint classification, identify urgency, and support efficient complaint management.
+**ResolveIQ** is an AI-powered consumer complaint intelligence platform designed to automate complaint classification, identify urgency, and support efficient complaint management.
 
 It combines Natural Language Processing (NLP), Machine Learning, and Django to transform unstructured consumer complaints into structured, actionable information.
 
@@ -192,20 +192,6 @@ http://127.0.0.1:8000/
 6. Low-confidence predictions are flagged for human review.
 7. The complaint and analysis results are stored in the database.
 
-## 🛣️ Roadmap
-
-- [x] Django project setup
-- [x] ML model training and evaluation
-- [x] Model integration with Django
-- [x] Automated complaint classification
-- [x] Rule-based urgency detection
-- [x] Confidence-based human review
-- [x] Complaint submission and storage
-- [ ] Advanced analytics dashboard
-- [ ] Complaint trend visualization
-- [ ] Improved NLP classification
-- [ ] Model explainability
-- [ ] Advanced complaint prioritization
 
 ## 🎯 Project Objective
 
