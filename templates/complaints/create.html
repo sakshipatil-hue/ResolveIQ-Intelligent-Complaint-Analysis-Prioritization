@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}New complaint · ResolveIQ{% endblock %}
+{% block page_heading %}Analyze a complaint{% endblock %}
+{% block content %}
+<div class="form-layout"><section class="panel form-panel"><span class="eyebrow">NEW ANALYSIS</span><h2>What happened?</h2><p class="muted">Add the complaint details. ResolveIQ will run the current analysis workflow.</p>
+<form method="post">{% csrf_token %}
+  <label for="{{ form.subject.id_for_label }}">COMPLAINT SUBJECT</label>{{ form.subject }}
+  {% if form.subject.errors %}<p class="form-error">{{ form.subject.errors }}</p>{% endif %}
+  <label for="{{ form.description.id_for_label }}">FULL DESCRIPTION</label>{{ form.description }}
+  {% if form.description.errors %}<p class="form-error">{{ form.description.errors }}</p>{% endif %}
+  <div class="form-actions"><a class="secondary-btn" href="{% url 'complaints:dashboard' %}">Cancel</a><button class="primary-btn" type="submit">Run analysis →</button></div>
+</form></section><aside class="panel guidance"><span class="eyebrow">ANALYSIS FLOW</span><div class="flow-step"><b>01</b><div><strong>Text processing</strong><small>Normalize and prepare complaint text.</small></div></div><div class="flow-step"><b>02</b><div><strong>Category prediction</strong><small>ML classifier integration is next.</small></div></div><div class="flow-step"><b>03</b><div><strong>Priority assessment</strong><small>Transparent urgency phrase rules.</small></div></div><div class="flow-step"><b>04</b><div><strong>Review decision</strong><small>Low-confidence cases are flagged.</small></div></div></aside></div>
+{% endblock %}

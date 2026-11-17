@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Overview · ResolveIQ{% endblock %}
+{% block page_heading %}Complaint overview{% endblock %}
+{% block content %}
+<section class="welcome-row"><div><p class="muted">A clear view of incoming customer issues and operational risk.</p></div><a class="primary-btn" href="{% url 'complaints:create' %}">＋ Analyze complaint</a></section>
+<section class="metric-grid">
+  <article class="metric-card"><div class="metric-top"><span>Total complaints</span><span class="metric-icon">▤</span></div><strong>{{ total }}</strong><small>All recorded submissions</small></article>
+  <article class="metric-card"><div class="metric-top"><span>High priority</span><span class="metric-icon red">↗</span></div><strong>{{ high }}</strong><small>Require prompt attention</small></article>
+  <article class="metric-card"><div class="metric-top"><span>Human review</span><span class="metric-icon amber">◎</span></div><strong>{{ review }}</strong><small>Flagged for verification</small></article>
+  <article class="metric-card"><div class="metric-top"><span>Resolved</span><span class="metric-icon green">✓</span></div><strong>{{ resolved }}</strong><small>Marked as resolved</small></article>
+</section>
+<section class="content-grid">
+  <article class="panel"><div class="panel-heading"><div><span class="eyebrow">RECENT ACTIVITY</span><h2>Latest complaints</h2></div><span class="subtle-tag">LAST 8 RECORDS</span></div>
+  {% if complaints %}
+  <div class="table-wrap"><table><thead><tr><th>SUBJECT</th><th>CATEGORY</th><th>PRIORITY</th><th>STATUS</th></tr></thead><tbody>
+  {% for item in complaints %}<tr><td><a class="table-link" href="{% url 'complaints:detail' item.pk %}">{{ item.subject|truncatechars:42 }}</a><small>{{ item.created_at|date:"d M Y, H:i" }}</small></td><td>{{ item.predicted_category|default:"—" }}</td><td><span class="priority {{ item.priority }}">{{ item.get_priority_display }}</span></td><td><span class="status-text">{{ item.get_status_display }}</span></td></tr>{% endfor %}
+  </tbody></table></div>
+  {% else %}<div class="empty-state"><div class="empty-icon">⌁</div><h3>No complaints yet</h3><p>Submit a sample complaint to start exploring the workspace.</p><a href="{% url 'complaints:create' %}" class="text-link">Create your first complaint →</a></div>{% endif %}
+  </article>
+  <article class="panel side-panel"><div class="panel-heading"><div><span class="eyebrow">MODEL INSIGHTS</span><h2>Category signals</h2></div></div>
+  {% if categories %}{% for cat in categories %}<div class="category-row"><span>{{ cat.predicted_category }}</span><b>{{ cat.count }}</b></div>{% endfor %}{% else %}<div class="insight-empty"><div class="pulse-ring">◎</div><h3>Awaiting model data</h3><p>Category distribution will appear after the classifier is trained and connected.</p></div>{% endif %}
+  <div class="pipeline-note"><span class="status-dot"></span><div><b>ML pipeline</b><small>Training not configured yet</small></div></div>
+  </article>
+</section>
+<footer class="page-footer">RESOLVEIQ 2.0 <span>BUILT FOR EXPLAINABLE COMPLAINT OPERATIONS</span></footer>
+{% endblock %}

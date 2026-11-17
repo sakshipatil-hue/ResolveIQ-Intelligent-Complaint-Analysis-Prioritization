@@ -1,0 +1,27 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}ResolveIQ{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'css/app.css' %}">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <a class="brand" href="{% url 'complaints:dashboard' %}">
+        <span class="brand-mark">R</span><span>resolve<span class="brand-accent">iq</span><small>COMPLAINT INTELLIGENCE</small></span>
+      </a>
+      <div class="nav-label">WORKSPACE</div>
+      <a class="nav-link active" href="{% url 'complaints:dashboard' %}"><span>▦</span> Overview</a>
+      <a class="nav-link" href="{% url 'complaints:create' %}"><span>＋</span> New complaint</a>
+      <div class="sidebar-bottom"><span class="status-dot"></span> SYSTEM READY <small>v2.0.0 · LOCAL</small></div>
+    </aside>
+    <main class="main">
+      <header class="topbar"><div><span class="eyebrow">INTELLIGENCE WORKSPACE</span><h1>{% block page_heading %}Overview{% endblock %}</h1></div><div class="top-actions"><span class="live-pill"><i></i> LOCAL ENVIRONMENT</span><div class="avatar">S</div></div></header>
+      {% block content %}{% endblock %}
+    </main>
+  </div>
+</body>
+</html>

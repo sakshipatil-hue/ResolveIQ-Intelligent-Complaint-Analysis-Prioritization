@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block title %}Analysis result · ResolveIQ{% endblock %}
+{% block page_heading %}Analysis result{% endblock %}
+{% block content %}
+<div class="panel result-panel"><span class="eyebrow">COMPLAINT #{{ complaint.pk }}</span><h2>{{ complaint.subject }}</h2><p class="complaint-copy">{{ complaint.description }}</p><div class="result-grid"><div><small>PREDICTED CATEGORY</small><b>{{ complaint.predicted_category }}</b></div><div><small>MODEL CONFIDENCE</small><b>{% if complaint.confidence != None %}{{ complaint.confidence|floatformat:1 }}%{% else %}Not available{% endif %}</b></div><div><small>PRIORITY</small><b class="priority {{ complaint.priority }}">{{ complaint.get_priority_display }}</b></div><div><small>HUMAN REVIEW</small><b>{% if complaint.requires_human_review %}Required{% else %}Not flagged{% endif %}</b></div></div><p class="notice">This starter currently uses rule-based urgency detection. Category classification will remain unclassified until we train and connect the ML pipeline.</p><a class="primary-btn" href="{% url 'complaints:dashboard' %}">← Back to overview</a></div>
+{% endblock %}

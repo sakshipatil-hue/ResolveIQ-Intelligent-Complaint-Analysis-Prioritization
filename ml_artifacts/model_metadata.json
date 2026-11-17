@@ -1,0 +1,22 @@
+{
+    "project": "ResolveIQ 2.0",
+    "model": "Logistic Regression",
+    "vectorizer": "TF-IDF",
+    "categories": [
+        "Bank account services",
+        "Credit card",
+        "Credit reporting",
+        "Debt collection",
+        "Money transfers",
+        "Mortgages and loans"
+    ],
+    "training_samples": 1433,
+    "test_samples": 253,
+    "test_metrics": {
+        "Accuracy": 0.7865612648221344,
+        "Macro Precision": 0.8020747077556271,
+        "Macro Recall": 0.7903091060985798,
+        "Macro F1": 0.7911007563256302,
+        "Weighted F1": 0.788297665893589
+    }
+}
