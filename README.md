@@ -1,6 +1,6 @@
 # 🔍 ResolveIQ
 
-### INTELLIGENT COMPLAINT ANALYSIS & PRIORITIZATION
+###                      INTELLIGENT COMPLAINT ANALYSIS & PRIORITIZATION
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.11+-blue?style=for-the-badge&logo=python&logoColor=white" />
